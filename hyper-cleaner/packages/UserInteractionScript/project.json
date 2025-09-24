@@ -1,0 +1,19 @@
+{
+  "name": "UserInteractionScript",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/UserInteractionScript/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/UserInteractionScript",
+        "main": "packages/UserInteractionScript/src/index.ts",
+        "tsConfig": "packages/UserInteractionScript/tsconfig.lib.json",
+        "assets": ["packages/UserInteractionScript/*.md"]
+      }
+    }
+  }
+}

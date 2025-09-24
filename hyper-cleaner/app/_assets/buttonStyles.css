@@ -1,0 +1,12 @@
+.w2wa {
+  height: 56px;
+  width: 100% !important;
+  border-radius: 14px;
+  padding: 14px;
+  border: none;
+  outline: none;
+  text-transform: initial;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+}

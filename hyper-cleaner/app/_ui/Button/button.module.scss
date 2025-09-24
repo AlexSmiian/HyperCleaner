@@ -1,0 +1,46 @@
+@use '../../_assets/mixin.scss';
+
+.btn {
+    display: flex;
+    justify-content: center;
+    height: 48px;
+    width: auto;
+    background: #0067FF;
+    color: #ffffff;
+    font-weight: 700;
+    @include mixin.flexible-font-size(15, 18);
+    text-transform: uppercase;
+    transition: background .4s,color .4s, outline .4s;
+    align-items: center;
+    cursor: pointer;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background: #fff;
+        color: #0067FF;
+        outline: 1px solid #0067FF;
+
+        svg {
+          fill: #0067FF;
+
+          path {
+            fill: #0067FF;
+          }
+        }
+      }
+    }
+
+    &:active {
+      background: #fff;
+      color: #0067FF;
+      outline: 1px solid #0067FF;
+
+      svg {
+        fill: #0067FF;
+
+        path {
+          fill: #0067FF;
+        }
+      }
+    }
+  }

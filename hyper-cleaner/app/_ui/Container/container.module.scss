@@ -1,0 +1,18 @@
+@use '../../_assets/vars.scss';
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 56px 16px;
+
+    @media (min-width: vars.$media-tab-sm) {
+      padding: 80px 40px;
+    }
+
+    @media (min-width: vars.$media-des-md) {
+      padding: 80px 0;
+      max-width: 1104px;
+    }
+}
+
+

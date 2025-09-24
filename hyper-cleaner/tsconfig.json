@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./*"],
+      "@packages/useLoadOnUserInteraction": [
+        "packages/useLoadOnUserInteraction/src/index.ts"
+      ],
+      "packages/UserInteractionScript": [
+        "packages/UserInteractionScript/src/index.ts"
+      ],
+      "packages/useToggleCountryOpenWithAnimation": [
+        "packages/useToggleCountryOpenWithAnimation/src/index.ts"
+      ],
+      "packages/useToggleOpenWithAnimation": [
+        "packages/useToggleOpenWithAnimation/src/index.ts"
+      ]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,55 @@
+@mixin non-select {
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+@mixin visual-hidden {
+	position: absolute;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(0px 0px 99.9% 99.9%);
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+	padding: 0;
+	border: 0;
+	top: 50%;
+}
+
+@mixin overflow-ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin flexible-font-size($minFont,$maxFont) {
+	$minBreakpoint: 320;
+	$maxBreakpoint: 1920;
+	$maxLessOne: $maxBreakpoint - 1;
+	font-size: #{$minFont}px;
+
+	@media (min-width: #{$minBreakpoint}px) and (max-width: #{$maxLessOne}px) {
+		font-size: calc(#{$minFont}px + (#{$maxFont} - #{$minFont}) * (100vw - #{$minBreakpoint}px) / (#{$maxBreakpoint} - #{$minBreakpoint}))
+	}
+
+	@media (min-width: #{$maxBreakpoint}px) {
+		font-size: #{$maxFont}px;
+	}
+}
+
+@mixin verticalOffsetSection($max-top, $min-top, $max-bottom, $min-bottom) {
+	$minBreakpoint: 320;
+	$maxBreakpoint: 1920;
+	$maxLessOne: $maxBreakpoint - 1;
+	padding-top: #{$min-top}px;
+	padding-bottom: #{$min-bottom}px;
+
+	@media (min-width: #{$minBreakpoint}px) and (max-width: #{$maxLessOne}px) {
+		padding-top: calc(#{$min-top}px + (#{$max-top} - #{$min-top}) * (100vw - #{$minBreakpoint}px) / (#{$maxBreakpoint} - #{$minBreakpoint}));
+		padding-bottom: calc(#{$min-bottom}px + (#{$max-bottom} - #{$min-bottom}) * (100vw - #{$minBreakpoint}px) / (#{$maxBreakpoint} - #{$minBreakpoint}));
+	}
+
+	@media (min-width: #{$maxBreakpoint}px) {
+		padding-top: #{$max-top}px;
+		padding-bottom: #{$max-bottom}px;
+	}
+}

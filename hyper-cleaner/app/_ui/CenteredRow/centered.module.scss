@@ -1,0 +1,18 @@
+@use '../../_assets/vars.scss';
+
+.centeredRow {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
+
+  @media (min-width: vars.$media-tab-lg) {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+
+  @media (min-width: vars.$media-des-sm) {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}

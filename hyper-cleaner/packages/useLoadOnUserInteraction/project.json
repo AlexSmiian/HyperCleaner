@@ -1,0 +1,19 @@
+{
+  "name": "useLoadOnUserInteraction",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/useLoadOnUserInteraction/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/useLoadOnUserInteraction",
+        "main": "packages/useLoadOnUserInteraction/src/index.ts",
+        "tsConfig": "packages/useLoadOnUserInteraction/tsconfig.lib.json",
+        "assets": ["packages/useLoadOnUserInteraction/*.md"]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "useToggleOpenWithAnimation",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/useToggleOpenWithAnimation/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/useToggleOpenWithAnimation",
+        "main": "packages/useToggleOpenWithAnimation/src/index.ts",
+        "tsConfig": "packages/useToggleOpenWithAnimation/tsconfig.lib.json",
+        "assets": ["packages/useToggleOpenWithAnimation/*.md"]
+      }
+    }
+  }
+}
