@@ -1,15 +1,19 @@
 
 import ErrorBoundary from '../../_components/ErrorBoundary';
-import { getCountryCode } from '../../actions';
+import Header from "@/app/_components/Header";
+import Footer from "@/app/_components/Footer";
 
 export default async function Page({children}: {children:React.ReactNode}) {
-    const countryCode = await getCountryCode();
-    console.log(countryCode)
-    return (
 
+    return (
+        <>
+            <Header />
             <ErrorBoundary>
                 {children}
             </ErrorBoundary>
+            <Footer />
+        </>
+
     );
 }
 

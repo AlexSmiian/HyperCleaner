@@ -1,46 +1,25 @@
 @use '../../_assets/mixin.scss';
+@use '../../_assets/vars';
 
 .btn {
-    display: flex;
-    justify-content: center;
-    height: 48px;
-    width: auto;
-    background: #0067FF;
-    color: #ffffff;
-    font-weight: 700;
-    @include mixin.flexible-font-size(15, 18);
-    text-transform: uppercase;
-    transition: background .4s,color .4s, outline .4s;
-    align-items: center;
-    cursor: pointer;
+  width: 100%;
+  max-width: 343px;
+  height: 56px;
+  display: block;
+  margin: 0px auto;
+  padding: 10px 16px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background: vars.$btn-secondary-bg;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 24px;
+  text-decoration: none;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  transition: background-color 0.2s ease-out;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
-    @media (any-hover: hover) {
-      &:hover {
-        background: #fff;
-        color: #0067FF;
-        outline: 1px solid #0067FF;
-
-        svg {
-          fill: #0067FF;
-
-          path {
-            fill: #0067FF;
-          }
-        }
-      }
-    }
-
-    &:active {
-      background: #fff;
-      color: #0067FF;
-      outline: 1px solid #0067FF;
-
-      svg {
-        fill: #0067FF;
-
-        path {
-          fill: #0067FF;
-        }
-      }
-    }
-  }
+}

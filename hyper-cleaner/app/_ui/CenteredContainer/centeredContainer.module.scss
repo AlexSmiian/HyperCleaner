@@ -1,17 +1,8 @@
-@use '../../_assets/vars.scss';
-
 .centeredContainer {
   width: 100%;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 16px;
   padding-right: 16px;
-
-  @media (min-width: vars.$media-tab-sm) {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  @media (min-width: vars.$media-des-md) {
-    padding-left: calc((100% - 1104px) / 2);
-    padding-right: calc((100% - 1104px) / 2);
-  }
 }
