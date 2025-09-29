@@ -1,0 +1,57 @@
+@use '../../../_assets/vars';
+
+.aboutUs {
+  .title {
+    color: vars.$white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 345px;
+  margin: 0 auto 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 30px;
+  background: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 80.51%);
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.listItem {
+
+}
+
+.itemImg {
+  &:nth-child(1) {
+    width: 50px;
+    height: 50px;
+  }
+
+  &:nth-child(1) {
+    width: 68px;
+    height: 50px;
+  }
+
+  &:nth-child(1) {
+    width: 75px;
+    height: 50px;
+  }
+}
