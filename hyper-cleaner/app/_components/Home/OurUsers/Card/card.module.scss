@@ -1,0 +1,99 @@
+@use '../../../../_assets/vars';
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 30px;
+  min-width: 291px;
+  width: 100%;
+  flex: 0 0 70%;
+  opacity: 0.4;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+
+  &:nth-child(1) {
+    background: radial-gradient(58.53% 42.11% at 16.84% 39.79%, rgba(253, 148, 141, 0.3) 0%, rgba(211, 58, 48, 0) 100%), radial-gradient(155.08% 116.29% at 11.17% 95.21%, rgba(211, 58, 48, 0.3) 0%, rgba(211, 58, 48, 0.48) 49.53%, rgba(211, 58, 48, 0) 100%), rgba(255, 255, 255, 0.08);
+  }
+
+  &:nth-child(2) {
+    background: radial-gradient(76.84% 52.85% at 2.92% 50%, rgba(193, 147, 253, 0.6) 0%, rgba(110, 70, 255, 0) 100%), radial-gradient(155.08% 116.29% at 11.17% 95.21%, rgba(70, 81, 255, 0.6) 0%, rgba(82, 78, 255, 0.48) 30.94%, rgba(110, 70, 255, 0) 100%), rgba(255, 255, 255, 0.08);
+  }
+
+  &:nth-child(3) {
+    background: radial-gradient(76.84% 52.85% at 2.92% 50%, rgba(118, 207, 162, 0.4) 0%, rgba(61, 170, 115, 0) 100%), radial-gradient(155.08% 116.29% at 11.17% 95.21%, rgba(39, 201, 119, 0.15) 0%, rgba(61, 170, 115, 0.25) 41.47%, rgba(39, 201, 119, 0) 100%), rgba(255, 255, 255, 0.08);
+  }
+}
+
+.commas {
+  width: 20px;
+  height: 20px;
+}
+
+.userImg {
+  width: 40px;
+  height: 32px;
+}
+
+.name {
+  color: vars.$white;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.user {
+  display: flex;
+  gap: 8px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.date {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  grid-area: date;
+  gap: 3px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+
+  img {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+.text {
+  color: vars.$white;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+
+.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  z-index: 3;
+}
+
+.prev,
+.next {
+  opacity: 0.7;
+  transform: scale(0.9);
+  z-index: 2;
+}

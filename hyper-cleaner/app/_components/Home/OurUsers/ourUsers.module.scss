@@ -1,0 +1,67 @@
+@use "../../../_assets/vars";
+
+.ourUsers {
+  margin-bottom: 56px;
+  margin-right: -16px;
+  margin-left: -16px;
+
+  .title {
+    margin: 0 auto 32px;
+    color: vars.$white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+}
+
+
+.container {
+  max-width: 450px;
+  width: 100%;
+
+  @media(min-width: 450px) {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sliderContainer {
+  width: 100%;
+  display: flex;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  max-width: 80px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 24px auto 0;
+  padding: 12px 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 1;
+  outline: none;
+  border: none;
+  border-radius: 999px;
+  padding: 0;
+  margin: 0;
+
+  &.activeDot {
+    background: linear-gradient(rgb(249, 225, 103) 0%, rgb(255, 182, 31) 100%);
+  }
+}

@@ -5,6 +5,7 @@ import Technology from "@/app/_components/Home/Technology";
 import AboutUs from "@/app/_components/Home/AboutUs";
 import HowItWork from "@/app/_components/Home/HowItWork";
 import Footer from "@/app/_components/Home/Footer";
+import OurUsers from "@/app/_components/Home/OurUsers";
 
 export default function Home() {
     return (
@@ -12,6 +13,7 @@ export default function Home() {
           <Hero />
           <WhatYouGet />
           <Technology />
+          <OurUsers />
           <AboutUs />
           <HowItWork />
           <Footer />
