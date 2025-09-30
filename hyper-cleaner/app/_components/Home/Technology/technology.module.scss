@@ -34,6 +34,21 @@
     top: 33px;
     left: -50px;
   }
+
+  &:after {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    background: rgb(255, 176, 11);
+    z-index: -1;
+    transform: translateZ(0px);
+    opacity: 0.4;
+    filter: blur(57px);
+    width: 120px;
+    height: 135px;
+    bottom: -43px;
+    right: -47px;
+  }
 }
 
 .list {

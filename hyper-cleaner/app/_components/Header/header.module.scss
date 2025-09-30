@@ -1,0 +1,53 @@
+@use '../../_assets/vars';
+
+
+.header {
+  padding: 8px 0px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  background-color: #050506;
+}
+
+.container {
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.logoImg {
+  width: 36px;
+  height: 36px;
+}
+
+.logoText {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  color: vars.$white;
+}
+
+.burgerButton {
+  position: absolute;
+  padding: 0px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  width: 24px;
+  height: 24px;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url("/images/burger-icon.svg");
+}

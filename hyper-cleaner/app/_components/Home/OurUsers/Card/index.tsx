@@ -2,7 +2,6 @@ import Image from 'next/image';
 import styles from './card.module.scss'
 
 type PropsType = {
-    key: string;
     index: number;
     commasImg: string;
     text: string;
@@ -12,7 +11,7 @@ type PropsType = {
     activeSlideIndex: number;
 }
 
-export default function Card({index,commasImg,text,userImg,name,date,activeSlideIndex,key}: PropsType) {
+export default function Card({index,commasImg,text,userImg,name,date,activeSlideIndex}: PropsType) {
     let cardClass = styles.slide;
 
     if (index === activeSlideIndex) {
@@ -24,7 +23,7 @@ export default function Card({index,commasImg,text,userImg,name,date,activeSlide
     }
 
     return (
-        <div className={cardClass} key={key}>
+        <div className={cardClass}>
             <Image src={commasImg} alt="commas" width={20} height={20} loading={'lazy'} className={styles.commas}/>
             <p className={styles.text}>{text}</p>
             <div className={styles.user}>
