@@ -1,0 +1,129 @@
+@use '../../_assets/vars';
+
+.email {
+  height: 100dvh;
+
+  .title {
+    color: vars.$white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 159%;
+    margin-top: 32px;
+  }
+}
+
+.emailWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.peopleStardet {
+  margin-top: 24px;
+  border-radius: 16px;
+  background-image: linear-gradient(91deg, rgba(26, 72, 255, 0.19) 0.21%, rgba(230, 14, 227, 0.19) 98.38%);
+  width: 100%;
+  padding: 8px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.peopleStardetText {
+  color: vars.$white;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: uppercase;
+
+  span {
+    font-size: 24px;
+  }
+}
+
+.subTitle {
+  //color: $gray-chateau;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 130%;
+  margin-top: 4px;
+}
+
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 22px 0;
+}
+
+.item {
+  border-radius: 60px;
+  background-color: rgba(208, 208, 208, 0.20);
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.itemText {
+  color: vars.$white;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.footertext {
+  //color: $loblolly;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 8px;
+}
+
+.footerLink {
+  //color:$loblolly;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+  text-decoration-line: underline !important;
+  margin-bottom: 0;
+
+  &:first-child {
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 1px;
+      height: 80%;
+      position: absolute;
+      right: -15px;
+      top: 0;
+      //background-color: $loblolly;
+    }
+  }
+}
+

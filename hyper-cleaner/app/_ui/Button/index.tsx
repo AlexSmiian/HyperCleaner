@@ -1,7 +1,7 @@
 import cln from 'classnames';
 import {MouseEventHandler} from 'react';
 import styles from './button.module.scss';
-import useGetSemanticUrl from '../../_utils/useGetSemanticUrl';
+import useGetSemanticUrl from "@/app/_utils/useGetSemanticUrl";
 
 export function Button({
     type = 'button',

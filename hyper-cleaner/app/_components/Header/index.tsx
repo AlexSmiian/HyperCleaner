@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Menu from "@/app/_components/Header/Menu";
 import {useState} from "react";
 
-export default function Header() {
+export default function Header({isMenu = true} :{isMenu?: boolean}) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -22,9 +22,13 @@ export default function Header() {
                             Hyper Cleaner
                         </span>
                     </div>
-                    <button className={styles.burgerButton} onClick={toggleMenu}>
-                    </button>
-                    <Menu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+                    { isMenu &&
+                        <>
+                            <button className={styles.burgerButton} onClick={toggleMenu}>
+                            </button>
+                            <Menu isOpen={menuOpen} onClose={() => setMenuOpen(false)}/>
+                        </>
+                    }
                 </div>
             </CenteredContainer>
     )

@@ -9,7 +9,7 @@ interface UseEmailAutocompleteProps {
 export const useEmailAutocomplete = ({ watch, clearErrors, setValue }: UseEmailAutocompleteProps) => {
   const [isAutocomplete, setIsAutocomplete] = useState<boolean>(false);
   const [autocompleteEmail, setAutocompleteEmail] = useState<string | undefined>('');
-  console.log("useEmailAutocomplete1");
+
   useEffect(() => {
     const subscription = watch((value: { email: string }, { name }: { name: string }) => {
       if (name === "email" && value.email) {

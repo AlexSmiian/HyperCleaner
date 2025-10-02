@@ -1,6 +1,8 @@
+'use client'
+
 import Image from "next/image";
 import styles from './hero.module.scss'
-import {Button} from "@/app/_ui/Button";
+import {LinkButton} from "@/app/_ui/Button";
 import Lavr from "@/app/_components/Home/_components/Lavr";
 
 const list = [
@@ -16,6 +18,10 @@ const list = [
 
 
 export default function Hero() {
+    const handleClick = () =>{
+
+    }
+
     return (
             <section className={styles.hero}>
                 <div className={styles.container}>
@@ -28,9 +34,9 @@ export default function Hero() {
                         <p className={styles.title}>Clean up your camera roll & enjoy the memories with Hyper
                             Cleaner!</p>
                         <p className={styles.heroText}>Who Said Cleaning Can’t Be Fun?</p>
-                        <Button classModifier={styles.button}>
+                        <LinkButton classModifier={styles.button} href={'/progress'}>
                             Try Hyper Cleaner Now
-                        </Button>
+                        </LinkButton>
                     </div>
                     <ul className={styles.advantages}>
                         {

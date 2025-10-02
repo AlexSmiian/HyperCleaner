@@ -1,0 +1,86 @@
+@use "../../../_assets/vars";
+
+.form {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+
+  label {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.labelText {
+  //color: $jumbo;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.input {
+  width: 100%;
+  border-radius: 18px;
+  //border: 2px solid $blue_ribbon_v2;
+  background: vars.$white;
+  padding: 16px 20px;
+  outline: none;
+  margin: 14px 0;
+
+  &:focus-within {
+    background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(90deg, #FFC466, #F4434F, #BB63FA, #6B2AEE) border-box;
+    border: 2px solid transparent;
+  }
+
+  &::placeholder {
+    //color: $gray_2;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+}
+
+.error {
+  //color: $error;
+  font-size: 12px;
+  text-align: start;
+}
+
+.formButton {
+  margin-top: 18px;
+  width: 100%;
+}
+
+.suggestionItem {
+  border-radius: 60px;
+  //border: 1px solid $jumbo;
+  //color: $french-gray;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+.suggestionsWrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.suggestions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  overflow-x: scroll;
+  padding-bottom: 10px;
+}

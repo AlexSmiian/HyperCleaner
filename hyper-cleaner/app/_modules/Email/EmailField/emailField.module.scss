@@ -1,0 +1,32 @@
+@use '../../../_assets/vars';
+
+.input {
+  display: block;
+  border: 1px solid transparent;
+  margin-top: 18px;
+
+  @media (min-width: $media-des-md) {
+    margin-top: 24px;
+  }
+
+  .is-error & {
+    //border: 1px solid $error;
+  }
+}
+
+.emailWrapper {
+  border-top: 1px solid transparent;
+}
+
+.error {
+  display: none;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  //color: $error;
+  margin-top: 4px;
+
+  &.isError {
+    display: block;
+  }
+}
