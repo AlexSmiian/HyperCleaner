@@ -2,6 +2,7 @@
 
 .email {
   height: 100dvh;
+  padding: 32px 16px;
 
   .title {
     color: vars.$white;
@@ -10,6 +11,43 @@
     font-weight: 600;
     line-height: 159%;
     margin-top: 32px;
+  }
+}
+
+.container {
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    background: rgb(255, 176, 11);
+    z-index: -1;
+    transform: translateZ(0px);
+    filter: blur(70px);
+    opacity: 0.17;
+    width: 200px;
+    height: 250px;
+    top: 65px;
+    left: 0px;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    background: rgb(255, 176, 11);
+    transform: translateZ(0px);
+    opacity: 0.2;
+    width: 300px;
+    height: 300px;
+    top: 30%;
+    right: -65px;
+    filter: blur(80px);
+    z-index: -2;
   }
 }
 
@@ -25,16 +63,27 @@
 }
 
 .peopleStardet {
-  margin-top: 24px;
-  border-radius: 16px;
-  background-image: linear-gradient(91deg, rgba(26, 72, 255, 0.19) 0.21%, rgba(230, 14, 227, 0.19) 98.38%);
-  width: 100%;
-  padding: 8px 24px;
   display: flex;
-  align-items: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
   gap: 8px;
-  position: relative;
-  z-index: 2;
+  margin: 0px auto 24px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgb(64, 38, 11) 0%, rgb(141, 89, 2) 100%);
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .peopleStardetText {
@@ -50,32 +99,44 @@
 }
 
 .subTitle {
-  //color: $gray-chateau;
+  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 130%;
-  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 
 .list {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  gap: 8px;
+  gap: 15px;
   list-style: none;
   padding: 0;
-  margin: 22px 0;
+  margin: 24px 0;
+
+  img {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .item {
-  border-radius: 60px;
-  background-color: rgba(208, 208, 208, 0.20);
-  padding: 6px 16px;
+  height: auto;
+  position: relative;
   display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  max-width: 164px;
+  padding: 8px;
+  border-radius: 12px;
+  background: linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 80.51%);
+  z-index: 1;
 }
 
 .itemText {
@@ -104,7 +165,7 @@
 }
 
 .footerLink {
-  //color:$loblolly;
+  color: vars.$white;
   text-align: center;
   font-size: 12px;
   font-weight: 400;

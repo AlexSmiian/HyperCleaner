@@ -23,9 +23,9 @@ export default function EmailPage({ searchParams }: {
                    classModifier={styles.email}>
             <div className={styles.container}>
                 <div className={styles.peopleStardet}>
-                    <Image src={'/images/w2a/email/stars.svg'}
-                           width={29}
-                           height={29}
+                    <Image src={'/images/email/stars.svg'}
+                           width={16}
+                           height={16}
                            alt=""/>
                     <p className={styles.peopleStardetText}>
                         5+ million users have trusted us

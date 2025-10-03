@@ -7,15 +7,17 @@ export function Button({
     type = 'button',
     onClick,
     children,
+    disabled,
     classModifier
 }: {
     type?: 'button' | 'submit',
     onClick?: MouseEventHandler<HTMLButtonElement>;
     children: React.ReactNode,
     classModifier?: string
+    disabled?:boolean
 }) {
     return (
-        <button type={type} onClick={onClick} className={cln(styles.btn, classModifier)}>
+        <button type={type} onClick={onClick} disabled={disabled} className={cln(styles.btn, classModifier)}>
             {children}
         </button>
     );

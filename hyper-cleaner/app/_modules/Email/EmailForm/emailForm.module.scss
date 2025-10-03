@@ -1,12 +1,14 @@
 @use "../../../_assets/vars";
 
 .form {
-  padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
   width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 16px;
 
   label {
     display: flex;
@@ -15,43 +17,54 @@
     width: 100%;
     text-align: center;
   }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:disabled {
+      background: linear-gradient(rgba(249, 225, 103, 0.25) 0%, rgba(255, 182, 31, 0.25) 100%);
+    }
+  }
 }
 
-.labelText {
-  //color: $jumbo;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 140%;
+.label {
+  position: relative;
 }
 
 .input {
   width: 100%;
-  border-radius: 18px;
-  //border: 2px solid $blue_ribbon_v2;
-  background: vars.$white;
-  padding: 16px 20px;
-  outline: none;
-  margin: 14px 0;
-
-  &:focus-within {
-    background: linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(90deg, #FFC466, #F4434F, #BB63FA, #6B2AEE) border-box;
-    border: 2px solid transparent;
-  }
+  height: 64px;
+  padding: 20px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: rgba(255, 255, 255, 0.4) solid 1px;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  transition: border 0.2s ease-out;
 
   &::placeholder {
-    //color: $gray_2;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 17px;
     font-weight: 400;
     line-height: 140%;
   }
+
+  &.inputError {
+    outline: rgb(248, 59, 0) solid 1px;
+  }
 }
 
 .error {
-  //color: $error;
+  color: vars.$error;
   font-size: 12px;
   text-align: start;
+  position: relative;
+  top: 7px;
 }
 
 .formButton {
@@ -60,20 +73,26 @@
 }
 
 .suggestionItem {
-  border-radius: 60px;
-  //border: 1px solid $jumbo;
-  //color: $french-gray;
+  height: 34px;
+  padding: 8px 10px;
   text-align: center;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: normal;
-  padding: 12px 20px;
+  color: rgb(98, 98, 98);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
   cursor: pointer;
+  border-radius: 16px;
+  border: 1px solid rgb(98, 98, 98);
+  outline: none;
+  background-color: transparent;
+  transition: color 0.2s ease-out;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .suggestionsWrapper {
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .suggestions {
@@ -81,6 +100,52 @@
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-  overflow-x: scroll;
   padding-bottom: 10px;
+}
+
+.dropdownWrapper {
+  width: 100%;
+  max-width: 343px;
+  max-height: 176px;
+  position: absolute;
+  bottom: 31px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  background: rgb(91, 79, 57);
+  box-shadow: rgba(31, 24, 16, 0.6) 0px 8px 20px 0px;
+  z-index: 2;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.dropdownList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+}
+
+.dropdownItem {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 16px;
+
+  &:hover {
+    background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImNoZWNrIj4KPGNpcmNsZSBpZD0iT3ZhbCIgY3g9IjEyIiBjeT0iMTIiIHI9IjEyIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfNTZfMTI3NykiLz4KPHBhdGggaWQ9IkNvbXBsZXRlIiBkPSJNOCAxMkwxMC45ODAxIDE0Ljk4MDFMMTYuNDU5OCA5LjUwMDI2IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L2c+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfNTZfMTI3NyIgeDE9IjEyIiB5MT0iMCIgeDI9IjEyIiB5Mj0iMjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iI0Y5RTE2NyIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGRkI2MUYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K") right 5% center / 24px 24px no-repeat rgba(253, 211, 62, 0.2);
+  }
+}
+
+.dropdownButton {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: vars.$white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 44px;
+  width: 100%;
+  text-align: left;
 }

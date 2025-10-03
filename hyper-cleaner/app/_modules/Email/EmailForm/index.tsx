@@ -2,10 +2,18 @@
 
 import { useEffect, useState } from 'react';
 import styles from './emailForm.module.scss';
-import { LinkButton } from "@/app/_ui/Button";
+import { Button } from "@/app/_ui/Button";
 import useEmail from "@/app/_hooks/useEmail";
+import cln from "classnames";
 
 const emailDomains = ['@gmail.com', '@outlook.com', '@yahoo.com'];
+const emailDomainsDropdowns = [
+  '@gmail.com','@hotmail.com','@yahoo.com', '@outlook.com', '@aol.com',
+  '@icloud.com', '@live.com', '@msn.com', '@me.com', '@mac.com',
+  '@facebook.com', '@verizon.net', '@rediffmail.com', '@zohomail.com',
+  '@zoho.com', '@mail.com', '@google.com', '@comcast.com', '@hotmail.co.uk',
+  '@yahoo.co.uk', "@att.net", '@gmz.com'
+];
 
 export default function EmailForm() {
   const {
@@ -19,66 +27,115 @@ export default function EmailForm() {
 
   const emailValue = watch('email') || '';
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const showError = Boolean(errors)
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [dropdownLocked, setDropdownLocked] = useState(false);
+
+  const emailError = Boolean(errors?.email);
+  const isValid = emailValue.trim() !== '' && !emailError;
 
   useEffect(() => {
-    setShowSuggestions(emailValue.trim() !== '' && !emailValue.includes('@'));
-  }, [emailValue]);
+    if (emailValue.trim() === '') {
+      setShowSuggestions(false);
+      setShowDropdown(false);
+      setDropdownLocked(false);
+      return;
+    }
+
+    if (!dropdownLocked) {
+      if (emailValue.includes('@')) {
+        setShowSuggestions(false);
+        setShowDropdown(true);
+      } else {
+        setShowSuggestions(true);
+        setShowDropdown(false);
+      }
+    }
+  }, [emailValue, dropdownLocked]);
 
   const handleSuggestionClick = (domain: string) => {
-    const newValue = emailValue + domain;
+    let newValue: string;
+
+    if (emailValue.includes('@')) {
+      newValue = emailValue.split('@')[0] + domain;
+    } else {
+      newValue = emailValue + domain;
+    }
+
     setValue('email', newValue, { shouldValidate: true, shouldDirty: true });
     setShowSuggestions(false);
+    setShowDropdown(false);
+    setDropdownLocked(true); // блокуємо повторне відкриття
   };
 
   const handleFormSubmit = handleSubmit(
-    (data) => {
-      onSubmit(data);
-    },
-    () => {
-      const url = new URL(window.location.href);
-      if (emailValue) {
-        url.searchParams.set('email', emailValue);
-      }
-    },
+      (data) => {
+        onSubmit(data);
+      },
+      () => {
+        const url = new URL(window.location.href);
+        if (emailValue) {
+          url.searchParams.set('email', emailValue);
+        }
+      },
   );
 
   return (
-    <form className={styles.form} onSubmit={handleFormSubmit} noValidate>
-      <label htmlFor="email"
-             className={styles.label}>
-        <input
-          id="email"
-          type="email"
-          className={styles.input}
-          placeholder="Email"
-          autoComplete="email"
-          {...register('email')}
-          required
-        />
-        {showError && (
-          <span className={styles.error}>{errors.email?.message || ''}</span>
-        )}
-      </label>
-
-      {showSuggestions && (
+      <form className={styles.form} onSubmit={handleFormSubmit}>
+        <label htmlFor="email" className={styles.label}>
+          <input
+              id="email"
+              type="email"
+              className={cln(styles.input, emailError && styles.inputError)}
+              placeholder="Email"
+              autoComplete="email"
+              {...register('email')}
+              required
+          />
+          {emailError && (
+              <span className={styles.error}>
+            The email doesn’t look valid. Please, check again
+          </span>
+          )}
+        </label>
         <div className={styles.suggestionsWrapper}>
           <div className={styles.suggestions}>
             {emailDomains.map((domain) => (
-              <div
-                key={domain}
-                className={styles.suggestionItem}
-                onClick={() => handleSuggestionClick(domain)}
-              >
-                {domain}
-              </div>
+                <div
+                    key={domain}
+                    className={styles.suggestionItem}
+                    onClick={() => handleSuggestionClick(domain)}
+                >
+                  {domain}
+                </div>
             ))}
           </div>
         </div>
-      )}
-        <LinkButton classModifier={styles.button} href={'/prices'}>
+
+        {showDropdown && (
+            <div className={styles.dropdownWrapper}>
+              <ul className={styles.dropdownList}>
+                {emailDomainsDropdowns.map((domain) => (
+                    <li key={domain} className={styles.dropdownItem}>
+                      <button
+                          type="button"
+                          className={styles.dropdownButton}
+                          onClick={() => handleSuggestionClick(domain)}
+                      >
+                        {domain}
+                      </button>
+                    </li>
+                ))}
+              </ul>
+            </div>
+        )}
+
+        <Button
+            disabled={!isValid}
+            classModifier={styles.button}
+            type="submit"
+        >
           Continue
-        </LinkButton>
-    </form>
+        </Button>
+      </form>
   );
 }
