@@ -10,7 +10,9 @@
     font-size: 24px;
     font-weight: 600;
     line-height: 159%;
-    margin-top: 32px;
+    max-width: 325px;
+    width: 100%;
+    margin: 32px auto 0;
   }
 }
 
@@ -63,6 +65,7 @@
 }
 
 .peopleStardet {
+  max-width: 325px;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -118,8 +121,8 @@
   margin: 24px 0;
 
   img {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -141,50 +144,8 @@
 
 .itemText {
   color: vars.$white;
-  text-align: center;
-  font-size: 12px;
+  text-align: left;
+  font-size: 11px;
   font-weight: 400;
   line-height: 140%;
 }
-
-.footertext {
-  //color: $loblolly;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 140%;
-}
-
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 8px;
-}
-
-.footerLink {
-  color: vars.$white;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 140%;
-  text-decoration-line: underline !important;
-  margin-bottom: 0;
-
-  &:first-child {
-    position: relative;
-
-    &:before {
-      content: '';
-      width: 1px;
-      height: 80%;
-      position: absolute;
-      right: -15px;
-      top: 0;
-      //background-color: $loblolly;
-    }
-  }
-}
-

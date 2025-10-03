@@ -46,8 +46,8 @@ export default function EmailPage({ searchParams }: {
                             <li key={index}
                                 className={styles.item}>
                                 <Image src={item.imgScr}
-                                       width={18}
-                                       height={18}
+                                       width={24}
+                                       height={24}
                                        alt=""
                                        loading={'lazy'}/>
                                 <span className={styles.itemText}>
