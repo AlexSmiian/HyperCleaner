@@ -5,8 +5,10 @@
   width: 100%;
   max-width: 343px;
   height: 56px;
-  display: block;
-  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   padding: 10px 16px;
   cursor: pointer;
   border: none;

@@ -1,0 +1,59 @@
+@use '../../_assets/vars';
+
+.timer {
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0 4px 15px;
+  width: 100%;
+  margin: 32px 0;
+  background-image: linear-gradient(92deg, #FFC466 -3.94%, #F4434F 29.76%, #BB63FA 73.84%, #6B2AEE 104.88%);
+  filter: drop-shadow(rgba(255, 62, 45, 0.6) 5px 5px 30px);
+  position: relative;
+  overflow: hidden;
+
+  .image {
+    width: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0;
+    object-fit: contain;
+  }
+}
+
+.timerText {
+  color: vars.$white;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 120%;
+  padding-right: 4px;
+  position: relative;
+  z-index: 2;
+}
+
+.timerDate {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 158%;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 2;
+
+  span {
+    border-radius: 10px;
+    border: 1px solid vars.$white;
+    padding: 0 5px;
+    min-width: 35px;
+    color: vars.$white;
+  }
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import {useEffect, useRef, useState} from 'react';
 import styles from './emailForm.module.scss';
 import { Button } from "@/app/_ui/Button";
 import useEmail from "@/app/_hooks/useEmail";
@@ -15,7 +15,7 @@ const emailDomainsDropdowns = [
   '@yahoo.co.uk', "@att.net", '@gmz.com'
 ];
 
-export default function EmailForm() {
+export default function EmailForm({searchParams} : {searchParams: object | string}) {
   const {
     register,
     errors,
@@ -29,7 +29,8 @@ export default function EmailForm() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [dropdownLocked, setDropdownLocked] = useState(false);
-
+  const suggestionsRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const emailError = Boolean(errors?.email);
   const isValid = emailValue.trim() !== '' && !emailError;
 
@@ -52,6 +53,31 @@ export default function EmailForm() {
     }
   }, [emailValue, dropdownLocked]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+
+      const clickedOutsideSuggestions =
+          suggestionsRef.current && !suggestionsRef.current.contains(target);
+      const clickedOutsideDropdown =
+          !dropdownRef.current || !dropdownRef.current.contains(target);
+
+      if (clickedOutsideSuggestions && clickedOutsideDropdown) {
+        setShowSuggestions(false);
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    if (isValid) {
+      setShowDropdown(false);
+    }
+  }, [isValid]);
+
   const handleSuggestionClick = (domain: string) => {
     let newValue: string;
 
@@ -64,19 +90,23 @@ export default function EmailForm() {
     setValue('email', newValue, { shouldValidate: true, shouldDirty: true });
     setShowSuggestions(false);
     setShowDropdown(false);
-    setDropdownLocked(true); // блокуємо повторне відкриття
+    setDropdownLocked(true);
   };
 
   const handleFormSubmit = handleSubmit(
       (data) => {
         onSubmit(data);
-      },
-      () => {
-        const url = new URL(window.location.href);
-        if (emailValue) {
-          url.searchParams.set('email', emailValue);
+
+        if (data.email) {
+          const currentParams = new URLSearchParams(window.location.search);
+          currentParams.set('email', data.email);
+
+          window.location.href = `/prices?${currentParams.toString()}`;
         }
       },
+      (errors) => {
+        console.warn("Validation errors:", errors);
+      }
   );
 
   return (
@@ -97,7 +127,7 @@ export default function EmailForm() {
           </span>
           )}
         </label>
-        <div className={styles.suggestionsWrapper}>
+        <div ref={suggestionsRef} className={styles.suggestionsWrapper}>
           <div className={styles.suggestions}>
             {emailDomains.map((domain) => (
                 <div

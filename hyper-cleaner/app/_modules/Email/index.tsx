@@ -39,7 +39,7 @@ export default function EmailPage({ searchParams }: {
                     <br/>
                     your cleanup process
                 </p>
-                <EmailForm />
+                <EmailForm searchParams={searchParams} />
                 <ul className={styles.list}>
                     {
                         list.map((item:{text:string;imgScr:string}, index) => (

@@ -1,0 +1,22 @@
+@use "../../_assets/vars";
+
+.prices {
+  padding-top: 24px;
+  padding-bottom: 40px;
+
+  .title {
+    margin-bottom: 32px;
+    margin-top: 0;
+    color: vars.$white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
