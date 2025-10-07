@@ -15,8 +15,29 @@
   }
 }
 
+.pricesContainer {
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.provider {
+  max-width: 293px;
+  margin: 0px auto 16px;
+  width: 100%;
+  display: block;
+}
+
+.money {
+  color: vars.$white;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
 }

@@ -1,0 +1,46 @@
+@use '../../../_assets/vars';
+
+.moneyBack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  background-repeat: no-repeat;
+  background-position: right 12px bottom 12px;
+  background-image: url('/images/prices/money-back.svg');
+  background-size: 75px;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    background: rgb(255, 176, 11);
+    z-index: -1;
+    transform: translateZ(0px);
+    filter: blur(70px);
+    opacity: 0.4;
+    height: 135px;
+    width: 150px;
+    bottom: -5px;
+    right: -65px;
+  }
+
+  .title {
+    color: vars.$white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+  }
+
+  .text {
+    color: vars.$white;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+}

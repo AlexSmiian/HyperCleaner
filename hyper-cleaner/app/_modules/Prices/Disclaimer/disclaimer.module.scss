@@ -1,0 +1,20 @@
+@use '../../../_assets/vars';
+
+.disclaimer {
+  margin: 24px auto;
+  width: 100%;
+  padding: 0 4px;
+
+  p,
+  a {
+    color: vars.$silver;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
