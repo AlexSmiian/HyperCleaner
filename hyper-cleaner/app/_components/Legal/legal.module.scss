@@ -1,0 +1,48 @@
+@use '../../_assets/vars';
+
+.mainPage {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  color: vars.$white;
+  padding: 35px 20px 20px;
+
+  p {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  a {
+    color: rgb(253, 211, 62);
+    text-decoration: underline;
+  }
+
+  section {
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+.titleH1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.titleH4 {
+  color: vars.$silver;
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+
+

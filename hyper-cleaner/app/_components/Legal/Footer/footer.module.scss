@@ -1,0 +1,14 @@
+@use '../../../_assets/vars';
+
+.footer {
+  padding: 13px 0px;
+  background: rgba(255, 255, 255, 0.15);
+
+}
+
+.text {
+  color: vars.$white;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
