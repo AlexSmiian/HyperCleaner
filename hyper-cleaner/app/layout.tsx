@@ -5,7 +5,6 @@ import { UserInteractionScript } from 'packages/UserInteractionScript';
 import ClientAnalytics from "./_components/ClientAnalytics";
 import './_assets/global.css';
 import OrganicTrafficDetector from './_components/OrganicTrafficDetector';
-import { getCountryCode } from './actions';
 import {openSans} from "@/app/_assets/openSans";
 
 export function generateViewport() {
@@ -16,14 +15,11 @@ export function generateViewport() {
     }
 }
 
-export default async function LangLayout({
+export default function LangLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
-    const countryCode = await getCountryCode();
-    console.log(countryCode)
-
     return (
         <html lang='en'>
         <head>
