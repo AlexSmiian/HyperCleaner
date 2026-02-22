@@ -1,8 +1,6 @@
 import Page from "../_modules/Page";
 import ProgressPage from "@/app/_modules/Progress";
 
-export const dynamic = 'force-static';
-
 type Props = {
     searchParams: Promise<{ username?: string }>
 }

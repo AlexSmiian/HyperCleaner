@@ -1,8 +1,6 @@
 import Page from "../_modules/Page";
 import Prices from "@/app/_modules/Prices";
 
-export const dynamic = 'force-static';
-
 type Props = {
     searchParams: Promise<{ username?: string }>
 }

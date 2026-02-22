@@ -1,8 +1,6 @@
 import Page from "../_modules/Page";
 import EmailPage from "@/app/_modules/Email";
 
-export const dynamic = 'force-static';
-
 type Props = {
     searchParams: Promise<{ username?: string }>
 }
