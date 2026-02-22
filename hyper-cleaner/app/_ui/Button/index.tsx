@@ -1,5 +1,7 @@
+'use client';
+
 import cln from 'classnames';
-import {MouseEventHandler} from 'react';
+import {MouseEventHandler, Suspense} from 'react';
 import styles from './button.module.scss';
 import useGetSemanticUrl from "@/app/_utils/useGetSemanticUrl";
 
@@ -23,19 +25,15 @@ export function Button({
     );
 }
 
-export function LinkButton({
-    href,
-    onClick,
-    children,
-    classModifier,
-    rel
-}: {
+type LinkButtonProps = {
     href: string,
     onClick?: MouseEventHandler<HTMLAnchorElement>,
     children: React.ReactNode,
     classModifier?: string,
     rel?: string
-}) {
+}
+
+function LinkButtonContent({ href, onClick, children, classModifier, rel }: LinkButtonProps) {
     const getSemanticUrl = useGetSemanticUrl();
 
     const isExternalUrl = href.startsWith('http://') || href.startsWith('https://');
@@ -66,5 +64,13 @@ export function LinkButton({
         <a href={href} onClick={handleClick} className={cln(styles.btn, classModifier)} rel={rel}>
             {children}
         </a>
+    );
+}
+
+export function LinkButton(props: LinkButtonProps) {
+    return (
+        <Suspense fallback={<a href={props.href} className={cln(styles.btn, props.classModifier)} rel={props.rel}>{props.children}</a>}>
+            <LinkButtonContent {...props} />
+        </Suspense>
     );
 }

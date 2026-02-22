@@ -29,7 +29,9 @@ export default function LangLayout({
             <UserInteractionScript />
         </head>
         <body className={cln(openSans.className, openSans.variable)}>
-        <ClientAnalytics />
+        <Suspense fallback={null}>
+            <ClientAnalytics />
+        </Suspense>
         {children}
         <Suspense fallback={null}>
             <OrganicTrafficDetector />

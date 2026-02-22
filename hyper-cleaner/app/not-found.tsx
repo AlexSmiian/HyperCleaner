@@ -1,14 +1,6 @@
-'use client';
-
-import { useParams, useSearchParams } from 'next/navigation';
 import ErrorNotFoundBase from './_components/ErrorNotFoundBase';
 
 export default function NotFound() {
-  const params = useParams();
-  const searchParams = useSearchParams();
-    console.log(params)
-    console.log(searchParams)
-
   return (
     <>
       <ErrorNotFoundBase

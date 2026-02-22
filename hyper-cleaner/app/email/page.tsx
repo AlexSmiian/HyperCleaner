@@ -1,11 +1,18 @@
 import Page from "../_modules/Page";
 import EmailPage from "@/app/_modules/Email";
 
-export default async function Email( searchParams: {username: string}) {
+export const dynamic = 'force-static';
+
+type Props = {
+    searchParams: Promise<{ username?: string }>
+}
+
+export default async function Email({ searchParams }: Props) {
+    const params = await searchParams;
 
     return (
         <Page isMenu={false}>
-           <EmailPage searchParams={searchParams}/>
+           <EmailPage searchParams={params}/>
         </Page>
     );
 }

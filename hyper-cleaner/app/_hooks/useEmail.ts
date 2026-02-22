@@ -1,7 +1,7 @@
 'use client';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { object, bool, string } from 'yup';
+import { object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 const regExpEmail = /^[_a-zA-Z0-9]+([._%+-]*[_a-zA-Z0-9])*@(?:[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])*\.[a-z]{2,}|(([0-9]{1,3}\.){3}[0-9]{1,3}|[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])*(\.[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])*)*\.[a-z]{2,}))$/;
@@ -32,7 +32,6 @@ export default function useEmail() {
     shouldFocusError: false,
     mode: 'onChange',
     reValidateMode: 'onChange',
-    //@ts-ignore
     resolver: yupResolver(signUpSchema),
   });
 

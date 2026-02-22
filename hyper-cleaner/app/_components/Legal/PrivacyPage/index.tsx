@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import styles from '../legal.module.scss'
 import H2 from "@/app/_ui/H2";
 import Link from "next/link";
