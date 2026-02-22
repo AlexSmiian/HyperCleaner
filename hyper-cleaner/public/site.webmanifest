@@ -1,0 +1,8 @@
+{
+  "name": "Hyper Cleaner",
+  "short_name": "HyperCleaner",
+  "icons": [],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
